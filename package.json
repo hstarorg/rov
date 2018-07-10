@@ -2,7 +2,7 @@
   "name": "rov",
   "version": "0.0.1",
   "description": "The state management and data proxy for react like vue.",
-  "main": "index.js",
+  "main": "dist/rov.js",
   "directories": {
     "example": "examples"
   },
@@ -21,11 +21,10 @@
   },
   "homepage": "https://github.com/hstarorg/rov#readme",
   "devDependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.4.1"
   },
-  "dependencies": {
-    "prop-types": "^15.6.2"
-  },
+  "dependencies": {},
   "importSort": {
     ".js, .jsx, .es6, .es,": {
       "parser": "babylon",
