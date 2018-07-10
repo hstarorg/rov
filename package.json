@@ -1,0 +1,35 @@
+{
+  "name": "rov",
+  "version": "0.0.1",
+  "description": "The state management and data proxy for react like vue.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hstarorg/rov.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hstarorg/rov/issues"
+  },
+  "homepage": "https://github.com/hstarorg/rov#readme",
+  "devDependencies": {
+    "react": "^16.4.1"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.2"
+  },
+  "importSort": {
+    ".js, .jsx, .es6, .es,": {
+      "parser": "babylon",
+      "style": "module-compact"
+    }
+  }
+}
