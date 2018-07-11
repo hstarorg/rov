@@ -7,6 +7,9 @@
     "example": "examples"
   },
   "scripts": {
+    "start": "npm run dev",
+    "dev": "cd examples/counter && npm start",
+    "build": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
