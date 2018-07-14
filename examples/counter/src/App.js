@@ -1,16 +1,5 @@
 import React, { Component } from 'react';
-
-function respondData(data, self) {
-  Object.defineProperty(data, 'count', {
-    get() {
-      return this._count;
-    },
-    set(v) {
-      this._count = v;
-      self.forceUpdate();
-    }
-  });
-}
+import { observe } from '../../../src';
 
 class App extends Component {
   data = {
@@ -21,8 +10,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     console.log(this.context, this.props, this.state);
-    this.add = this.add.bind(this);
-    respondData(this.data, this);
   }
 
   componentDidCatch() {
@@ -50,9 +37,21 @@ class App extends Component {
     console.error('shouldComponentUpdate');
   }
 
-  add() {
-    this.data.count += 1;
-  }
+  plus = () => {
+    this.data.count++;
+  };
+  minus = () => {
+    this.data.count--;
+  };
+
+  startObserver = () => {
+    this.stopObserver();
+    this.ob = observe(this, this.data);
+  };
+
+  stopObserver = () => {
+    this.ob && this.ob.unsubscribe();
+  };
 
   render() {
     return (
@@ -64,7 +63,10 @@ class App extends Component {
           Current Value <span>{this.data.count}</span>
         </p>
         <p>
-          <button onClick={this.add}>+1</button>
+          <button onClick={this.startObserver}>Start Observer</button>
+          <button onClick={this.stopObserver}>Stop Observer</button>
+          <button onClick={this.plus}>+1</button>
+          <button onClick={this.minus}>-1</button>
         </p>
       </div>
     );
