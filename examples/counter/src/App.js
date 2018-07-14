@@ -35,6 +35,7 @@ class App extends Component {
   }
   shouldComponentUpdate() {
     console.error('shouldComponentUpdate');
+    return true;
   }
 
   plus = () => {
@@ -60,8 +61,10 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          Current Value <span>{this.data.count}</span>
+          Current Value <span>{this.data.count}</span> <br />
+          Prop Value: {this.props.a}
         </p>
+
         <p>
           <button onClick={this.startObserver}>Start Observer</button>
           <button onClick={this.stopObserver}>Stop Observer</button>
