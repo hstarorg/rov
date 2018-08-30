@@ -1,17 +1,16 @@
 import React from 'react';
 import { Context } from './Context';
 
-export function connect(params) {
+export function connect(options) {
   return function(Component) {
     return class extends React.Component {
-      constructor(props) {
-        super(props);
-      }
+      componentWillMount() {}
+      componentWillUnmount() {}
       render() {
         return (
           <Context.Consumer>
             {store => {
-              return <Component {...store} />;
+              return <Component store={store} />;
             }}
           </Context.Consumer>
         );

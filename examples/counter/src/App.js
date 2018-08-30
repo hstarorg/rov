@@ -1,40 +1,37 @@
 import React, { Component } from 'react';
 import { observe } from '../../../src';
+import Comp from './Comp';
 
 class App extends Component {
-  data = {
-    _count: 0,
-    count: 0
-  };
-
+  data = { _count: 0, count: 0 };
   constructor(props) {
     super(props);
-    console.log(this.props, this.state);
+    this.ob = observe(this, this.data);
   }
 
   componentDidCatch() {
-    console.error('componentDidCatch');
+    console.warn('componentDidCatch');
   }
   componentDidMount() {
-    console.error('componentDidMount');
+    console.info('componentDidMount');
   }
   componentDidUpdate() {
-    console.error('componentDidUpdate');
+    console.info('componentDidUpdate');
   }
   componentWillMount() {
-    console.error('componentWillMount');
+    console.info('componentWillMount');
   }
   componentWillReceiveProps() {
-    console.error('componentWillReceiveProps');
+    console.info('componentWillReceiveProps');
   }
   componentWillUnmount() {
-    console.error('componentWillUnmount');
+    console.info('componentWillUnmount');
   }
   componentWillUpdate() {
-    console.error('componentWillUpdate');
+    console.info('componentWillUpdate');
   }
   shouldComponentUpdate() {
-    console.error('shouldComponentUpdate');
+    console.info('shouldComponentUpdate');
     return true;
   }
 
@@ -64,7 +61,9 @@ class App extends Component {
           Current Value <span>{this.data.count}</span> <br />
           Prop Value: {this.props.a}
         </p>
-
+        <fieldset>
+          <Comp />
+        </fieldset>
         <p>
           <button onClick={this.startObserver}>Start Observer</button>
           <button onClick={this.stopObserver}>Stop Observer</button>
